@@ -1,0 +1,28 @@
+{
+  "name": "cypress-typescript",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@types/node": "^18.0.0",
+    "cypress": "^14.4.0",
+    "esbuild": "^0.18.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.4.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": [
+      "cypress/e2e/**/*.steps.ts"
+    ],
+    "html": {
+      "enabled": true
+    }
+  }
+}
