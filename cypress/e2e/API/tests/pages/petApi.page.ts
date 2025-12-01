@@ -1,7 +1,7 @@
 export default class PetApi {
 
   static createPet(pet: Cypress.Pet): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.request({
+    return cy.api({
       method: 'POST',
       url: `/v2/pet`,
       body: pet,
@@ -10,7 +10,7 @@ export default class PetApi {
   }
 
   static getPet(id: number): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.request({
+    return cy.api({
       method: 'GET',
       url: `/v2/pet/${id}`,
       failOnStatusCode: false
@@ -18,7 +18,7 @@ export default class PetApi {
   }
 
   static updatePet(pet: Cypress.Pet): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.request({
+    return cy.api({
       method: 'PUT',
       url: `/v2/pet`,
       body: pet,
@@ -27,7 +27,7 @@ export default class PetApi {
   }
 
   static deletePet(id: number): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.request({
+    return cy.api({
       method: 'DELETE',
       url: `/v2/pet/${id}`,
       failOnStatusCode: false

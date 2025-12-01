@@ -17,7 +17,7 @@ export default defineConfig({
     downloadsFolder: 'cypress/downloads',
     video: false,
     screenshotOnRunFailure: true,
-    defaultCommandTimeout: 30000,
-    pageLoadTimeout: 60000,
+    defaultCommandTimeout: 15000,
+    pageLoadTimeout: 20000,
   },
 });

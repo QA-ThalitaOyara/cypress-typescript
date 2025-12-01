@@ -1,3 +1,4 @@
+@api
 Feature: Petstore API CRUD
   As a tester I want to use the public Swagger Petstore API
   To demonstrate examples of creating, reading, updating and deleting a pet

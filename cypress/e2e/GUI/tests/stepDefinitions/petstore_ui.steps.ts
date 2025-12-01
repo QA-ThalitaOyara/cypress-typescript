@@ -3,7 +3,7 @@ import PetUi from '../pages/petUi.page';
 
 Given('I open the Petstore Swagger UI', () => {
   PetUi.visit();
-  cy.get('.ch2-allow-all-btn').click();
+  PetUi.allowAllCookies().click();
 });
 
 When('click on the GET endpoint {string} section to expand it', (endpoint:string) => {

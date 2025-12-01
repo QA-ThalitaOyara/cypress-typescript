@@ -7,12 +7,12 @@ export default class PetUi {
     selectStatus: '.parameters-col_description > select',
   } as const;
 
-  static allowAllCookies(): Cypress.Chainable<JQuery<HTMLElement>> {
-    return cy.get(this.selectors.allowAllCookiesButton).click();
-  }
-
   static visit(): Cypress.Chainable<Window> {
     return cy.visit('');
+  }
+
+  static allowAllCookies(): Cypress.Chainable<JQuery<HTMLElement>> {
+    return cy.get(this.selectors.allowAllCookiesButton)
   }
 
   static getMainContainer(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -27,9 +27,9 @@ export default class PetUi {
     return cy.contains(this.selectors.tryItOutText);
   }
 
-static getStatusSelect(): Cypress.Chainable<JQuery<HTMLSelectElement>> {
-  return cy.get(this.selectors.selectStatus);
-}
+  static getStatusSelect(): Cypress.Chainable<JQuery<HTMLSelectElement>> {
+    return cy.get(this.selectors.selectStatus);
+  }
 
   static getStatusOptions(): Cypress.Chainable<string[]> {
     return this.getStatusSelect().then(($select) => {

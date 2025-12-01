@@ -1,3 +1,4 @@
+@ui
 Feature: Petstore UI (Swagger) checks
   As a tester I want to validate basic elements of the Petstore Swagger UI
   To demonstrate a sample UI test
@@ -15,7 +16,7 @@ Feature: Petstore UI (Swagger) checks
   Scenario: Verify the Swagger UI header is present
     Given I open the Petstore Swagger UI
     Then I should see the text "Swagger Petstore"
-@focus
+
   Scenario: Verify the search input is present in the UI
     Given I open the Petstore Swagger UI
     When click on the GET endpoint "/pet/findByStatus" section to expand it
