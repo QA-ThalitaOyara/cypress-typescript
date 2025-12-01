@@ -10,8 +10,17 @@
     "skipLibCheck": true,
     "paths": {
       "@badeball/cypress-cucumber-preprocessor/*": ["./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"],
-      "@types/*": ["cypress/models/types/*"]
+      "@types/*": ["cypress/models/types/*"],
+      "@support/*": ["cypress/support/*"],
+      "@pages/*": ["cypress/support/pages/*"],
+      "@api/*": ["cypress/support/pages/api/*"],
+      "@gui/*": ["cypress/support/pages/gui/*"]
     }
   },
-  "include": ["**/*.ts", "cypress/models/types"]
+  "include": [
+    "cypress.config.ts",
+    "cypress/**/*.ts",
+    "cypress/support/**/*.ts",
+    "models/**/*.ts"
+  ]
 }

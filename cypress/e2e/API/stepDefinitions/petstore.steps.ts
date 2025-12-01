@@ -1,5 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import PetApi from '../pages/petApi.page';
+
+import PetApi from '@api/petApi.page';
+
 
 Given('I have a new pet payload with name {string} and status {string}',  (name: string, status: string) => {
   const uniqueId = Date.now();
@@ -33,7 +35,7 @@ When('I retrieve the pet via API', () => {
 });
 
 Then('the returned pet should have the same name', () => {
-  cy.get('@getResp').then((resp: any) => {
+  cy.get<Cypress.PetResponse>('@getResp').then((resp) => {
     expect(resp.status).to.equal(200);
     cy.get<Cypress.Pet>('@pet').then((pet) => {
       expect(resp.body).to.have.property('name', pet.name);
@@ -50,7 +52,7 @@ When('I update the pet via API with name {string} and status {string}', (updated
 });
 
 Then('the update response should contain the new name and status', () => {
-  cy.get('@updateResp').then((resp: any) => {
+  cy.get<Cypress.PetResponse>('@updateResp').then((resp) => {
     expect(resp.status).to.be.oneOf([200, 201]);
     cy.get<Cypress.Pet>('@updatedPet').then((updatedPet) => {
       expect(resp.body).to.have.property('name', updatedPet.name);
@@ -66,7 +68,7 @@ When('I delete the pet via API', () => {
 });
 
 Then('the delete call should return success or not found', () => {
-  cy.get('@deleteResp').then((resp: any) => {
+  cy.get<Cypress.PetResponse>('@deleteResp').then((resp) => {
     expect(resp.status).to.be.oneOf([200, 404]);
   });
 });
