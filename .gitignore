@@ -1,1 +1,22 @@
+# Remove files and directories that should not be committed to version control
 node_modules
+cucumber-report.html
+package-lock.json
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# Editor directories
+.vscode/
+
+# Logs
+npm-debug.log*
+
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/reports/
