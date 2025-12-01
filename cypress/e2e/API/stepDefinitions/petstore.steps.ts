@@ -1,6 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 import PetApi from '@api/petApi.page';
+import PetApiAssertions from '@api/petApi.assertions';
 
 
 Given('I have a new pet payload with name {string} and status {string}',  (name: string, status: string) => {
@@ -22,9 +23,9 @@ When('I create the pet via API', () => {
 
 Then('the create response should contain the same name {string}', (name:string) => {
   cy.get<Cypress.PetResponse>('@createResp').then((resp) => {
-    expect(resp.status).to.be.oneOf([200, 201]);
-    expect(resp.body).to.have.property('name');
-    expect(resp.body.name).to.equal(name + resp.body.id);
+    cy.get<Cypress.Pet>('@pet').then((pet) => {
+      PetApiAssertions.validateCreateResponse(resp, pet);
+    });
   });
 });
 
@@ -36,9 +37,8 @@ When('I retrieve the pet via API', () => {
 
 Then('the returned pet should have the same name', () => {
   cy.get<Cypress.PetResponse>('@getResp').then((resp) => {
-    expect(resp.status).to.equal(200);
     cy.get<Cypress.Pet>('@pet').then((pet) => {
-      expect(resp.body).to.have.property('name', pet.name);
+      PetApiAssertions.validateGetResponse(resp, pet);
     });
   });
 });
@@ -53,10 +53,8 @@ When('I update the pet via API with name {string} and status {string}', (updated
 
 Then('the update response should contain the new name and status', () => {
   cy.get<Cypress.PetResponse>('@updateResp').then((resp) => {
-    expect(resp.status).to.be.oneOf([200, 201]);
     cy.get<Cypress.Pet>('@updatedPet').then((updatedPet) => {
-      expect(resp.body).to.have.property('name', updatedPet.name);
-      expect(resp.body).to.have.property('status', updatedPet.status);
+      PetApiAssertions.validateUpdateResponse(resp, updatedPet);
     });
   });
 });
@@ -69,6 +67,6 @@ When('I delete the pet via API', () => {
 
 Then('the delete call should return success or not found', () => {
   cy.get<Cypress.PetResponse>('@deleteResp').then((resp) => {
-    expect(resp.status).to.be.oneOf([200, 404]);
+    PetApiAssertions.validateDeleteResponse(resp);
   });
 });

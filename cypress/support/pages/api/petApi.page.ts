@@ -1,36 +1,31 @@
 export default class PetApi {
 
-  static createPet(pet: Cypress.Pet): Cypress.Chainable<Cypress.PetResponse> {
+ private static request<T>(
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+    url: string,
+    body?: any
+  ): Cypress.Chainable<Cypress.Response<T>> {
     return cy.api({
-      method: 'POST',
-      url: `/v2/pet`,
-      body: pet,
+      method,
+      url,
+      body,
       failOnStatusCode: false
-    });
+    }) as Cypress.Chainable<Cypress.Response<T>>;
   }
 
-  static getPet(id: number): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.api({
-      method: 'GET',
-      url: `/v2/pet/${id}`,
-      failOnStatusCode: false
-    });
+  static createPet(pet: Cypress.Pet) {
+    return this.request<Cypress.Pet>('POST', '/v2/pet', pet);
   }
 
-  static updatePet(pet: Cypress.Pet): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.api({
-      method: 'PUT',
-      url: `/v2/pet`,
-      body: pet,
-      failOnStatusCode: false
-    });
+  static getPet(id: number) {
+    return this.request<Cypress.Pet>('GET', `/v2/pet/${id}`);
   }
 
-  static deletePet(id: number): Cypress.Chainable<Cypress.PetResponse> {
-    return cy.api({
-      method: 'DELETE',
-      url: `/v2/pet/${id}`,
-      failOnStatusCode: false
-    });
+  static updatePet(pet: Cypress.Pet) {
+    return this.request<Cypress.Pet>('PUT', '/v2/pet', pet);
+  }
+
+  static deletePet(id: number) {
+    return this.request<{}>('DELETE', `/v2/pet/${id}`);
   }
 }

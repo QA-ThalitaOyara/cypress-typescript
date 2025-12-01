@@ -17,6 +17,7 @@ package-lock.json
 npm-debug.log*
 
 # Cypress artifacts
+cypress/downloads/
 cypress/screenshots/
 cypress/videos/
 cypress/reports/
