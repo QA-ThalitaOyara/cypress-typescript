@@ -36,6 +36,6 @@
     }
   },
   "dependencies": {
-    "cypress-plugin-api": "^2.11.2"
+    "@bahmutov/cy-api": "^2.2.8"
   }
 }

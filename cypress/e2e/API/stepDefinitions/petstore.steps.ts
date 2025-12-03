@@ -1,18 +1,15 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-
 import PetApi from '@api/petApi.page';
 import PetApiAssertions from '@api/petApi.assertions';
+import { PetBuilder } from '@support/builders/petBuilder';
 
+Given('I have a new pet payload', () => {
+  const pet = new PetBuilder()
+    .withRandomName()
+    .withRandomStatus()
+    .build();
 
-Given('I have a new pet payload with name {string} and status {string}',  (name: string, status: string) => {
-  const uniqueId = Date.now();
-  const pet: Cypress.Pet = {
-    id: uniqueId,
-    name: `${name}${uniqueId}`,
-    photoUrls: [],
-    status,
-  };
-  cy.wrap<Cypress.Pet>(pet).as('pet');
+  cy.wrap(pet).as('pet');
 });
 
 When('I create the pet via API', () => {
@@ -21,10 +18,10 @@ When('I create the pet via API', () => {
   });
 });
 
-Then('the create response should contain the same name {string}', (name:string) => {
-  cy.get<Cypress.PetResponse>('@createResp').then((resp) => {
+Then('the create response should contain the same name', () => {
+ cy.get<Cypress.PetResponse>('@createResp').then((resp) => {
     cy.get<Cypress.Pet>('@pet').then((pet) => {
-      PetApiAssertions.validateCreateResponse(resp, pet);
+    PetApiAssertions.validateCreateResponse(resp, pet);
     });
   });
 });
@@ -43,11 +40,16 @@ Then('the returned pet should have the same name', () => {
   });
 });
 
-When('I update the pet via API with name {string} and status {string}', (updatedName: string, updatedStatus: string) => {
-  cy.get<Cypress.Pet>('@pet').then((pet) => {
-    const updated: Cypress.Pet = Object.assign({}, pet, { name: updatedName, status: updatedStatus });
-    PetApi.updatePet(updated).as('updateResp');
-    cy.wrap<Cypress.Pet>(updated).as('updatedPet');
+When('I update the pet via API with name and status', () => {
+  cy.get<Cypress.Pet>('@pet').then((originalPet) => {
+    const updatedPet = new PetBuilder()
+      .withRandomName()
+      .withRandomStatus()
+      .build();
+    updatedPet.id = originalPet.id;
+
+    PetApi.updatePet(updatedPet).as('updateResp');
+    cy.wrap(updatedPet).as('updatedPet');
   });
 });
 

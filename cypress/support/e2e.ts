@@ -2,4 +2,4 @@
 // You can put global configuration and behavior that modifies Cypress here.
 
 import './commands'
-import 'cypress-plugin-api';
+import '@bahmutov/cy-api';
