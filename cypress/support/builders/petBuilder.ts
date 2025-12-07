@@ -1,18 +1,30 @@
+import { Pet } from '../../models/types/pet';
+
 /**
  * Builder for creating Cypress.Pet objects
  */
 export class PetBuilder {
-  private pet: Cypress.Pet;
+  private pet: Pet;
 
   /** Initializes a new Pet with default values */
   constructor() {
     this.pet = {
       id: Date.now(),
+      category: {
+        id: Date.now(),
+        name: '',
+      },
       name: '',
-      status: 'available',
-      photoUrls: []
-    };
-  }
+      photoUrls: [''],
+      tags: [
+        {
+          id: Date.now(),
+          name: ''
+        }
+      ],
+      status: 'available'
+    }
+  };
 
   /** Sets a custom name */
   withName(name: string) {
@@ -27,14 +39,14 @@ export class PetBuilder {
   }
 
   /** Sets a custom status */
-  withStatus(status: string) {
+  withStatus(status: Pet['status']) {
     this.pet.status = status;
     return this;
   }
 
   /** Assigns a random status: 'available', 'pending', or 'sold' */
   withRandomStatus() {
-    const statuses: Cypress.Pet['status'][] = ['available', 'pending', 'sold'];
+    const statuses: Pet['status'][] = ['available', 'pending', 'sold'];
     const randomIndex = Math.floor(Math.random() * statuses.length);
     this.pet.status = statuses[randomIndex];
     return this;
