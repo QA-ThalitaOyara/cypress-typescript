@@ -73,3 +73,36 @@ Then('the delete call should return success or not found', () => {
     PetApiAssertions.validateDeleteResponse(resp);
   });
 });
+
+When('I fetch pets with status {string}', (status: string) => {
+  PetApi.getPetsByStatus(status).as('petList');
+});
+
+Then('I should get a list of pets', () => {
+  cy.get<Cypress.Response<Pet[]>>('@petList').then((resp) => {
+    expect(resp.body).to.be.an('array');
+    expect(resp.body.length).to.be.greaterThan(0);
+  });
+});
+
+Then('I store the first pet ID for later use', () => {
+  cy.get<Cypress.Response<Pet[]>>('@petList').then((resp) => {
+    const firstPetId = resp.body[0].id;
+    cy.wrap(firstPetId).as('petIdFromList');
+  });
+});
+
+When('I retrieve the pet using the stored ID', () => {
+  cy.get<number>('@petIdFromList').then((petId) => {
+    PetApi.getPet(petId).as('retrievedPet');
+  });
+});
+
+Then('the retrieved pet should exist with valid data', () => {
+  cy.get<Cypress.Response<Pet>>('@retrievedPet').then((resp) => {
+    expect(resp.status).to.equal(200);
+    expect(resp.body).to.have.property('id');
+    expect(resp.body).to.have.property('name');
+    expect(resp.body).to.have.property('status');
+  });
+});

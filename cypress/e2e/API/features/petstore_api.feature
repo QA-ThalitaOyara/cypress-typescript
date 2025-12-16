@@ -25,3 +25,10 @@ Feature: Petstore API CRUD
     When I create the pet via API
     And I delete the pet via API
     Then the delete call should return success or not found
+
+  Scenario: Retrieve an existing pet from the list by ID
+    When I fetch pets with status "available"
+    Then I should get a list of pets
+    And I store the first pet ID for later use
+    When I retrieve the pet using the stored ID
+    Then the retrieved pet should exist with valid data
