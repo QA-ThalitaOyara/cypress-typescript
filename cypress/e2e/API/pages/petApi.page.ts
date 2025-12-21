@@ -1,11 +1,11 @@
-import { Pet } from '../../../types/pet';
+import { PetBody } from '../../../types/pet';
 
 export default class PetApi {
 
  private static request<T>(
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     url: string,
-    body?: any
+    body?: PetBody
   ): Cypress.Chainable<Cypress.Response<T>> {
     return cy.api({
       method,
@@ -15,16 +15,16 @@ export default class PetApi {
     }) as Cypress.Chainable<Cypress.Response<T>>;
   }
 
-  static createPet(pet: Pet) {
-    return this.request<Pet>('POST', '/v2/pet', pet);
+  static createPet(pet: PetBody) {
+    return this.request<PetBody>('POST', '/v2/pet', pet);
   }
 
   static getPet(id: number) {
-    return this.request<Pet>('GET', `/v2/pet/${id}`);
+    return this.request<PetBody>('GET', `/v2/pet/${id}`);
   }
 
-  static updatePet(pet: Pet) {
-    return this.request<Pet>('PUT', '/v2/pet', pet);
+  static updatePet(pet: PetBody) {
+    return this.request<PetBody>('PUT', '/v2/pet', pet);
   }
 
   static deletePet(id: number) {
@@ -32,6 +32,6 @@ export default class PetApi {
   }
 
   static getPetsByStatus(status: string) {
-    return this.request<Pet[]>('GET', `/v2/pet/findByStatus?status=${status}`);
+    return this.request<PetBody[]>('GET', `/v2/pet/findByStatus?status=${status}`);
   }
 }
