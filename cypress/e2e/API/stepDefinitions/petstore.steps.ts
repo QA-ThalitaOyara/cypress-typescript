@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import PetApi from '@api/petApi.page';
-import PetApiAssertions from '@api/petApi.assertions';
-import { PetBuilder } from '@support/builders/petBuilder';
-import { Pet } from '../../../models/types/pet';
+import PetApi from 'cypress/e2e/api/pages/petApi.page';
+import PetApiAssertions from 'cypress/e2e/api/pages/petApi.assertions';
+import { PetBuilder } from 'cypress/e2e/api/builders/petBuilder';
+import { Pet } from '../../../types/pet';
 
 Given('I have a new pet payload', () => {
   const pet = new PetBuilder()

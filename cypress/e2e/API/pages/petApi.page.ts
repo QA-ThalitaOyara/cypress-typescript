@@ -1,4 +1,4 @@
-import { Pet } from '../../../models/types/pet';
+import { Pet } from '../../../types/pet';
 
 export default class PetApi {
 

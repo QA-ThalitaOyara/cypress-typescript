@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-import PetUi from '@gui/petUi.page';
+import PetUi from 'cypress/e2e/gui/pages/petUi.page';
 
 Given('I open the Petstore Swagger UI', () => {
   PetUi.visit();

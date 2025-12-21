@@ -1,4 +1,4 @@
-import { Pet } from '../../models/types/pet';
+import { Pet } from '../../../types/pet';
 
 /**
  * Builder for creating Cypress.Pet objects

@@ -10,10 +10,7 @@
     "skipLibCheck": true,
     "paths": {
       "@badeball/cypress-cucumber-preprocessor/*": ["./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"],
-      "@support/*": ["cypress/support/*"],
-      "@pages/*": ["cypress/support/pages/*"],
-      "@api/*": ["cypress/support/pages/api/*"],
-      "@gui/*": ["cypress/support/pages/gui/*"]
+      "@support/*": ["cypress/support/*"]
     }
   },
   "include": [
