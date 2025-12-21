@@ -9,7 +9,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test": "npm run lint && npm run cypress:run",
-    "petStore-api-coverage": "ts-node --transpile-only api-coverage.ts"
+    "petStore-api-coverage": "ts-node --transpile-only scripts/api-coverage.ts",
+    "generatePdfReport": "ts-node --transpile-only scripts/generate-pdf-coverage.ts"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "23.2.1",
@@ -37,6 +38,8 @@
     }
   },
   "dependencies": {
-    "@bahmutov/cy-api": "^2.2.8"
+    "@bahmutov/cy-api": "^2.2.8",
+    "chart.js": "^4.5.1",
+    "puppeteer": "^24.34.0"
   }
 }

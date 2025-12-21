@@ -44,7 +44,6 @@ module.exports = {
     "import/order": [
       "error",
       {
-        "newlines-between": "always",
         "alphabetize": { order: "asc" }
       }
     ],

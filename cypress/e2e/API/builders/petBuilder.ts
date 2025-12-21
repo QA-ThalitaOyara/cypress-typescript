@@ -24,7 +24,7 @@ export class PetBuilder {
       ],
       status: 'available'
     }
-  };
+  }
 
   /** Sets a custom name */
   withName(name: string) {
