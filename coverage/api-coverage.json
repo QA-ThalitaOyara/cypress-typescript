@@ -1,0 +1,342 @@
+{
+  "generatedAt": "2025-12-21T17:14:51.573Z",
+  "swaggerSource": "https://petstore.swagger.io/v2/swagger.json",
+  "endpoints": [
+    {
+      "path": "/pet/{petId}/uploadImage",
+      "method": "POST",
+      "tag": "pet",
+      "operationId": "uploadFile"
+    },
+    {
+      "path": "/pet",
+      "method": "POST",
+      "tag": "pet",
+      "operationId": "addPet"
+    },
+    {
+      "path": "/pet",
+      "method": "PUT",
+      "tag": "pet",
+      "operationId": "updatePet"
+    },
+    {
+      "path": "/pet/findByStatus",
+      "method": "GET",
+      "tag": "pet",
+      "operationId": "findPetsByStatus"
+    },
+    {
+      "path": "/pet/findByTags",
+      "method": "GET",
+      "tag": "pet",
+      "operationId": "findPetsByTags"
+    },
+    {
+      "path": "/pet/{petId}",
+      "method": "GET",
+      "tag": "pet",
+      "operationId": "getPetById"
+    },
+    {
+      "path": "/pet/{petId}",
+      "method": "POST",
+      "tag": "pet",
+      "operationId": "updatePetWithForm"
+    },
+    {
+      "path": "/pet/{petId}",
+      "method": "DELETE",
+      "tag": "pet",
+      "operationId": "deletePet"
+    },
+    {
+      "path": "/store/inventory",
+      "method": "GET",
+      "tag": "store",
+      "operationId": "getInventory"
+    },
+    {
+      "path": "/store/order",
+      "method": "POST",
+      "tag": "store",
+      "operationId": "placeOrder"
+    },
+    {
+      "path": "/store/order/{orderId}",
+      "method": "GET",
+      "tag": "store",
+      "operationId": "getOrderById"
+    },
+    {
+      "path": "/store/order/{orderId}",
+      "method": "DELETE",
+      "tag": "store",
+      "operationId": "deleteOrder"
+    },
+    {
+      "path": "/user/createWithList",
+      "method": "POST",
+      "tag": "user",
+      "operationId": "createUsersWithListInput"
+    },
+    {
+      "path": "/user/{username}",
+      "method": "GET",
+      "tag": "user",
+      "operationId": "getUserByName"
+    },
+    {
+      "path": "/user/{username}",
+      "method": "PUT",
+      "tag": "user",
+      "operationId": "updateUser"
+    },
+    {
+      "path": "/user/{username}",
+      "method": "DELETE",
+      "tag": "user",
+      "operationId": "deleteUser"
+    },
+    {
+      "path": "/user/login",
+      "method": "GET",
+      "tag": "user",
+      "operationId": "loginUser"
+    },
+    {
+      "path": "/user/logout",
+      "method": "GET",
+      "tag": "user",
+      "operationId": "logoutUser"
+    },
+    {
+      "path": "/user/createWithArray",
+      "method": "POST",
+      "tag": "user",
+      "operationId": "createUsersWithArrayInput"
+    },
+    {
+      "path": "/user",
+      "method": "POST",
+      "tag": "user",
+      "operationId": "createUser"
+    }
+  ],
+  "coverageMap": {
+    "POST /pet/{petId}/uploadImage": {
+      "tag": "pet",
+      "method": "POST",
+      "path": "/pet/{petId}/uploadImage",
+      "operationId": "uploadFile",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /pet": {
+      "tag": "pet",
+      "method": "POST",
+      "path": "/pet",
+      "operationId": "addPet",
+      "coverage": "CRITICAL",
+      "testedBy": [
+        "feature"
+      ],
+      "assertions": null
+    },
+    "PUT /pet": {
+      "tag": "pet",
+      "method": "PUT",
+      "path": "/pet",
+      "operationId": "updatePet",
+      "coverage": "CRITICAL",
+      "testedBy": [
+        "feature"
+      ],
+      "assertions": null
+    },
+    "GET /pet/findByStatus": {
+      "tag": "pet",
+      "method": "GET",
+      "path": "/pet/findByStatus",
+      "operationId": "findPetsByStatus",
+      "coverage": "ADDITIONAL",
+      "testedBy": [
+        "feature"
+      ],
+      "assertions": null
+    },
+    "GET /pet/findByTags": {
+      "tag": "pet",
+      "method": "GET",
+      "path": "/pet/findByTags",
+      "operationId": "findPetsByTags",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /pet/{petId}": {
+      "tag": "pet",
+      "method": "GET",
+      "path": "/pet/{petId}",
+      "operationId": "getPetById",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /pet/{petId}": {
+      "tag": "pet",
+      "method": "POST",
+      "path": "/pet/{petId}",
+      "operationId": "updatePetWithForm",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "DELETE /pet/{petId}": {
+      "tag": "pet",
+      "method": "DELETE",
+      "path": "/pet/{petId}",
+      "operationId": "deletePet",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /store/inventory": {
+      "tag": "store",
+      "method": "GET",
+      "path": "/store/inventory",
+      "operationId": "getInventory",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /store/order": {
+      "tag": "store",
+      "method": "POST",
+      "path": "/store/order",
+      "operationId": "placeOrder",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /store/order/{orderId}": {
+      "tag": "store",
+      "method": "GET",
+      "path": "/store/order/{orderId}",
+      "operationId": "getOrderById",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "DELETE /store/order/{orderId}": {
+      "tag": "store",
+      "method": "DELETE",
+      "path": "/store/order/{orderId}",
+      "operationId": "deleteOrder",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /user/createWithList": {
+      "tag": "user",
+      "method": "POST",
+      "path": "/user/createWithList",
+      "operationId": "createUsersWithListInput",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /user/{username}": {
+      "tag": "user",
+      "method": "GET",
+      "path": "/user/{username}",
+      "operationId": "getUserByName",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "PUT /user/{username}": {
+      "tag": "user",
+      "method": "PUT",
+      "path": "/user/{username}",
+      "operationId": "updateUser",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "DELETE /user/{username}": {
+      "tag": "user",
+      "method": "DELETE",
+      "path": "/user/{username}",
+      "operationId": "deleteUser",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /user/login": {
+      "tag": "user",
+      "method": "GET",
+      "path": "/user/login",
+      "operationId": "loginUser",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "GET /user/logout": {
+      "tag": "user",
+      "method": "GET",
+      "path": "/user/logout",
+      "operationId": "logoutUser",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /user/createWithArray": {
+      "tag": "user",
+      "method": "POST",
+      "path": "/user/createWithArray",
+      "operationId": "createUsersWithArrayInput",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    },
+    "POST /user": {
+      "tag": "user",
+      "method": "POST",
+      "path": "/user",
+      "operationId": "createUser",
+      "coverage": "NONE",
+      "testedBy": [],
+      "assertions": null
+    }
+  },
+  "metrics": {
+    "totalEndpoints": 20,
+    "endpointsWithTests": 3,
+    "critical": 2,
+    "additional": 1,
+    "none": 17,
+    "overallCoveragePercent": 15,
+    "byTag": {
+      "pet": {
+        "total": 8,
+        "critical": 2,
+        "additional": 1,
+        "none": 5
+      },
+      "store": {
+        "total": 4,
+        "critical": 0,
+        "additional": 0,
+        "none": 4
+      },
+      "user": {
+        "total": 8,
+        "critical": 0,
+        "additional": 0,
+        "none": 8
+      }
+    }
+  }
+}

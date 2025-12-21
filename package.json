@@ -8,7 +8,8 @@
     "lint:ts": "tsc --noEmit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "test": "npm run lint && npm run cypress:run"
+    "test": "npm run lint && npm run cypress:run",
+    "petStore-api-coverage": "ts-node --transpile-only api-coverage.ts"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "23.2.1",
