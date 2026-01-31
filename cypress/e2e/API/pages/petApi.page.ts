@@ -1,37 +1,48 @@
 import { PetBody } from '../../../types/pet';
+import { ApiBase } from '../common/apiBase';
+import { UrlBuilder } from '../common/urlBuilder';
+import { HeaderFactory } from '../common/headerFactory';
 
 export default class PetApi {
+  private static urlBuilder = new UrlBuilder('/v2');
 
- private static request<T>(
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
-    url: string,
-    body?: PetBody
-  ): Cypress.Chainable<Cypress.Response<T>> {
-    return cy.api({
-      method,
-      url,
-      body,
-      failOnStatusCode: false
-    }) as Cypress.Chainable<Cypress.Response<T>>;
-  }
-
+  /**
+   * Creates a new pet
+   */
   static createPet(pet: PetBody) {
-    return this.request<PetBody>('POST', '/v2/pet', pet);
+    const url = this.urlBuilder.build('/pet');
+    return ApiBase.request<PetBody>('POST', url, HeaderFactory.baseHeaders(), pet);
   }
 
+  /**
+   * Gets a pet by ID
+   */
   static getPet(id: number) {
-    return this.request<PetBody>('GET', `/v2/pet/${id}`);
+    const url = this.urlBuilder.build('/pet/{id}', { id });
+    return ApiBase.request<PetBody>('GET', url, HeaderFactory.baseHeaders());
   }
 
+  /**
+   * Updates an existing pet
+   */
   static updatePet(pet: PetBody) {
-    return this.request<PetBody>('PUT', '/v2/pet', pet);
+    const url = this.urlBuilder.build('/pet');
+    return ApiBase.request<PetBody>('PUT', url, HeaderFactory.baseHeaders(), pet);
   }
 
+  /**
+   * Deletes a pet by ID
+   */
   static deletePet(id: number) {
-    return this.request<{}>('DELETE', `/v2/pet/${id}`);
+    const url = this.urlBuilder.build('/pet/{id}', { id });
+    return ApiBase.request<{}>('DELETE', url, HeaderFactory.baseHeaders());
   }
 
+  /**
+   * Gets pets by status
+   */
   static getPetsByStatus(status: string) {
-    return this.request<PetBody[]>('GET', `/v2/pet/findByStatus?status=${status}`);
+    const url = this.urlBuilder.build('/pet/findByStatus?status={status}', { status });
+    return ApiBase.request<PetBody[]>('GET', url, HeaderFactory.baseHeaders());
   }
 }

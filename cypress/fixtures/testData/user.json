@@ -1,0 +1,20 @@
+{
+  "validUser": {
+    "username": "testuser",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "userStatus": 1
+  },
+  "anotherUser": {
+    "username": "anotheruser",
+    "firstName": "Another",
+    "lastName": "User",
+    "email": "another@example.com",
+    "password": "password456",
+    "phone": "0987654321",
+    "userStatus": 1
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-21T17:20:48.101Z",
+  "generatedAt": "2026-01-31T19:21:29.840Z",
   "swaggerSource": "https://petstore.swagger.io/v2/swagger.json",
   "endpoints": [
     {
@@ -207,8 +207,10 @@
       "method": "GET",
       "path": "/store/inventory",
       "operationId": "getInventory",
-      "coverage": "NONE",
-      "testedBy": [],
+      "coverage": "CRITICAL",
+      "testedBy": [
+        "feature"
+      ],
       "assertions": null
     },
     "POST /store/order": {
@@ -216,8 +218,10 @@
       "method": "POST",
       "path": "/store/order",
       "operationId": "placeOrder",
-      "coverage": "NONE",
-      "testedBy": [],
+      "coverage": "CRITICAL",
+      "testedBy": [
+        "feature"
+      ],
       "assertions": null
     },
     "GET /store/order/{orderId}": {
@@ -243,8 +247,10 @@
       "method": "POST",
       "path": "/user/createWithList",
       "operationId": "createUsersWithListInput",
-      "coverage": "NONE",
-      "testedBy": [],
+      "coverage": "CRITICAL",
+      "testedBy": [
+        "feature"
+      ],
       "assertions": null
     },
     "GET /user/{username}": {
@@ -313,11 +319,11 @@
   },
   "metrics": {
     "totalEndpoints": 20,
-    "endpointsWithTests": 3,
-    "critical": 2,
+    "endpointsWithTests": 6,
+    "critical": 5,
     "additional": 1,
-    "none": 17,
-    "overallCoveragePercent": 15,
+    "none": 14,
+    "overallCoveragePercent": 30,
     "byTag": {
       "pet": {
         "total": 8,
@@ -327,15 +333,15 @@
       },
       "store": {
         "total": 4,
-        "critical": 0,
+        "critical": 2,
         "additional": 0,
-        "none": 4
+        "none": 2
       },
       "user": {
         "total": 8,
-        "critical": 0,
+        "critical": 1,
         "additional": 0,
-        "none": 8
+        "none": 7
       }
     }
   }
